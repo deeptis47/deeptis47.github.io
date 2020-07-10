@@ -1,134 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DEEPTI SINGH</title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Climate Extremes in a Warming World">
-    <link rel="canonical" href="https://deeptis47.github.io/">
-
-
-    
-    <meta property="og:image" content="https://deeptis47.github.io/img/monsoon.jpg"/>
-    
-
-    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link rel="stylesheet" href="/style.css">
-
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/academicons/academicons.css" >
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-
-</head>
-
-
-
-    <body id="page-top" class="index">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">DEEPTI SINGH</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#people">About Me</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#research">Research</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#papers">Papers</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#service">Service</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#outreach">Outreach</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#links">PRESS</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    :
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in"></div>
-                <div class="intro-heading">Climate Extremes in a Warming World</div>
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <ul class="list-inline social-buttons">
-                            
-                            <li><a href="mailto:deepti.singh@wsu.edu"><i class="fa fa-envelope"></i></a>
-                            </li>
-                            
-                            <li><a href="http://twitter.com/ClimateChirper"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            
-                            <li><a href="https://scholar.google.com/citations?user=6OQRGagAAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </header>
-<!--
-        
-          
-        
-          <a class="page-link" href="/research/">research</a>
-        
-          
-        
-          <a class="page-link" href="/teaching/">teaching</a>
-        
- -->
-
-
-
-    <style>
+--
+layout: default
+---
+<style>
     .style_as_me {
         font-weight: bold;
     }
@@ -137,18 +10,16 @@
     <section id="people" class="bg-light-gray">
         <div class="container">
             <div class="row">
-                
+                {% for member in site.data.people %}
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/people/deepti.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Deepti Singh</h4>
-                        <p class="text-muted">Assistant Professor, School of the Environment, Washington State University - Vancouver</p>
+                        <img src="img/people/{{ member.pic }}" class="img-responsive img-circle" alt="">
+                        <h4>{{ member.name }}</h4>
+                        <p class="text-muted">{{ member.position }}</p>
                         <ul class="list-inline social-buttons">
-                            
-                            <li><a href="mailto:deepti.singh@wsu.edu"><i class="fa fa-envelope"></i></a>
-                            
-                            <li><a href="http://twitter.com/ClimateChirper"><i class="fa fa-twitter"></i></a>
-                            
+                            {% for network in member.social %}
+                            <li><a href="{{ network.url }}"><i class="fa fa-{{ network.title }}"></i></a>
+                            {% endfor %}
                             <li><a href="https://scholar.google.com/citations?user=6OQRGagAAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
                         </ul>
                     </div>
@@ -159,7 +30,7 @@
                             I am a climate scientist motivated by the potential for climate studies to minimize future disaster risk to vulnerable communities around the world. Towards this goal, my research explores the physical drivers of climate extremes, and their impacts on agriculture, water availability and human health. I combine a variety of tools including observations, paleoclimate evidence, remote sensing data, and model simulations, to study extremes in the past and future climates. I am particularly interested in studying extremes such as intense rainfall, droughts, and heat waves in monsoonal climates that affect the billions of people with relatively poor adaptive capacity living in these regions.  
                         </p>
                         <p class="text-muted">
-                            I am an Assistant Professor in the <a href='https://environment.wsu.edu/'> School of the Environment</a> at Washington State University - Vancouver (WSUV). I was a postdoctoral fellow at the Lamont-Doherty Earth Observatory of Columbia University. I received my Ph.D. in <a href='https://earth.stanford.edu/ess'> Environmental Earth System Science</a> from Stanford University in 2015 working with <a href='https://pangea.stanford.edu/researchgroups/cesd/'> Dr. Noah Diffenbaugh</a>. My dissertation investigated trends in daily-scale extremes events in different regions, the associated physical processes, and the role of natural and anthropogenic factors in shaping their spatial and temporal characteristics. In 2015, I was recognized as a <a href='http://www.nasonline.org/programs/kavli-frontiers-of-science/'> Kavli 'Frontiers of Science' Fellow</a> by the U.S. National Academy of Sciences. 
+                            I am an Assistant Professor in the <a href='https://environment.wsu.edu/'> School of the Environment</a> at Washington State University Vancouver (WSUV). I was a postdoctoral fellow at the Lamont-Doherty Earth Observatory of Columbia University. I received my Ph.D. in <a href='https://earth.stanford.edu/ess'> Environmental Earth System Science</a> from Stanford University in 2015 working with <a href='https://pangea.stanford.edu/researchgroups/cesd/'> Dr. Noah Diffenbaugh</a>. My dissertation investigated trends in daily-scale extremes events in different regions, the associated physical processes, and the role of natural and anthropogenic factors in shaping their spatial and temporal characteristics. In 2015, I was recognized as a <a href='http://www.nasonline.org/programs/kavli-frontiers-of-science/'> Kavli 'Frontiers of Science' Fellow</a> by the U.S. National Academy of Sciences. 
                         </p>
                         <p class="text-muted">
                             Prior to my career in earth sciences, I completed a Master's in Aeronautics and Astronautics Engineering from Purdue University while researching environmentally friendly alternatives for aviation fuels in <a href='http://web.ics.purdue.edu/~lqiao/index.htm'> Dr. Li Qiao's group </a>. This interest was fueled by my passion for all things aviation-related, my research with <a href='http://www.aero.iitb.ac.in/~sudar/index_files/Page494.htm'> Dr. Sudarshan Kumar </a> at the Indian Institute of Technology Bombay for two years, and my Bachelor's in Mechanical Engineering at Vishwakarma Institute of Technology, Pune University, India.
@@ -171,13 +42,13 @@
                             When I'm not actively working, I am out on adventures with my pibble Patches discovering the diverse wildlife in NYC parks including racoons and rodents, hiking both urban and natural environments, or working with the wonderful dogs at <a href='http://poshpetsrescue.org/'> Posh Pets Rescue</a>.   
                          </p>
                 </div>
-                
+                {% endfor %}
             </div>
         </div>
     </section>
 
 <!-- RESEARCH -->
-    <section id="research" class="">
+    <section id="research" class="{% cycle '', 'bg-light-gray' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -186,49 +57,25 @@
                 </div>
             </div>
         </div>
-        
+        {% for topic in site.data.research %}
         <div class="container">
             <div class="row research-topic">
                 <div class="col-md-4">
-                        <img src="img/research/NAWTD.jpg" class="img-responsive" alt="">
+                        <img src="img/research/{{ topic.pic }}" class="img-responsive" alt="">
                 </div>
                 <div class="col-lg-8">
-                        <h4>Extreme Events</h4>
-                        <p class="text-muted">Extreme events often have substantial socio-economic and humanitarian impacts. Future impacts from such events can be minimized through adaptation and risk management efforts informed by an improved understanding of their response to climate change. To this end, my work focuses on understanding what conditions contribute to the occurrence of extremes and why certain extreme events have changed over time. I quantify trends in different extremes over the observational record and study the associated dynamic and thermodynamic drivers of observed changes. Some of my recent work includes characterizing historical changes in rainfall extremes linked to subseasonal variability of the South Asian Summer Monsoon (<a href='http://www.nature.com/nclimate/journal/v4/n6/abs/nclimate2208.html'>Nature Climate Change</a>); examining historical and future trends in the pattern of warm-west/cool-east extremes resembling the 2013-14 and 2014-15 winters in North America (<a href='http://onlinelibrary.wiley.com/doi/10.1002/2016JD025116/full'>JGR-Atmospheres</a>); and identifying the contribution of changing circulation patterns to trends in surface extremes (<a href='http://advances.sciencemag.org/content/2/4/e1501344'>Science Advances</a> study led by Dr. Swain, and <a href='http://www.nature.com/nature/journal/v522/n7557/full/nature14550.html'>Nature study</a> led by Dr. Horton) <p class='text-muted'> Combining instrumental measurements, paleoclimate data, climate model experiments, and suitable statistical methods, my current work diagnoses the spatial structure, dynamical causes, and forcings of droughts in the last millenium that were associated with documented famines. </p></p>
+                        <h4>{{ topic.name }}</h4>
+                        <p class="text-muted">{{ topic.description }}</p>
                 </div>
             </div>
         </div>
-        
-        <div class="container">
-            <div class="row research-topic">
-                <div class="col-md-4">
-                        <img src="img/research/nclimate2901.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="col-lg-8">
-                        <h4>Influence of Natural Variability and External Climate Forcings</h4>
-                        <p class="text-muted">Over the last century, humans activities have led to increases in greenhouse gas and aerosols, and extensive land-use change. How these external forcings have shaped the characteristics of the climate in these regions is yet to be fully understood. I use process-based approaches with observations and models to understand how different levels of anthropogenic forcings alter the likelihood of climate/weather extremes and their spatio-temporal features (see <a href='http://onlinelibrary.wiley.com/doi/10.1002/jgrd.50543/full'> JGR-Atmospheres</a> article characterizing U.S. precipitation extremes under transient greenhouse gas increases in the 21st century). The <b>South Asian monsoon</b> region presents a particularly compelling region for these investigations because of the presence of high emission concentrations, rapid agricultural intensification, and the high vulnerability profile of the region. My article in <a href='http://www.nature.com/nclimate/journal/v6/n1/full/nclimate2901.html'> Nature Climate Change</a> discusses the influence of these forcings on the summer monsoon. I study the influence of both land and atmospheric forcings and natural variability on the monsoon circulation, its onset, and its sub-seasonal characteristics. I also examine the importance of fine-scale and large-scale processes, and teleconnection patterns in influencing seasonal and subseasonal monsoon variability. <p class='text-muted'>Given the implications of <b>single-event attribution</b> for climate-risk management, policy, and societal perception of climate change, I am interested in developing robust approaches for quantifying the role of natural and anthropogenic factors in shaping specific and often unprecedented events. Using statistical and process-based methods, my work contributes to developing approaches to quantify the role of natural variability and anthropogenic warming on the environmental conditions contributing to specific events. Two of our attributions studies - 2013 flooding in Northern India and the 2012-present California drought, were published in the <a href='https://www.ametsoc.org/ams/index.cfm/publications/bulletin-of-the-american-meteorological-society-bams/explaining-extreme-events-of-2013-from-a-climate-perspective/'> BAMS Special Issue on Explaining Extreme Events of 2013</a>.</p></p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container">
-            <div class="row research-topic">
-                <div class="col-md-4">
-                        <img src="img/research/agriculture.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="col-lg-8">
-                        <h4>Climate Change Impacts</h4>
-                        <p class="text-muted">The impact of climate change spans a range of societal sectors. An improved assesment of the impacts of climate change requires an understanding of the management of current climatic factors such as rainfall timing, duration and intensity in different systems and a complete range of potential changes in these factors with increased warming. My research primarily focuses on the agricultural sector but also encompasses human health impacts. I combine ground-based surveys, yield estimates, and remote-sensing information with weather data to study a number of questions targeted around Indian agriculture. I have an on-going project targeted at learning about what climatic factors are most relevant for cropping decisions, the strategies employed by farmers to cope with rainfall extremes, the impacts of daily-scale extreme precipitation such as wet/dry spells on crop yields, and how farmers adapt to changes in seasonal and subseasonal rainfall characteristics over time. Informed by this work, I investigate future changes in the identified climate factors, including quantifying the full range of uncertainties in these estimates. Given the implications for global food-security, I also study how climate change will influence the likelihood of co-occurring shocks in different agricultural regions. I have also contributed to a study in <a href='http://www.sciencedirect.com/science/article/pii/S2211912416300141'> Global Food Security</a> on assessing the climate resilience of major cereal crops in India. <p class='text-muted'>In addition to my interest in agricultural impacts, I have contributed to work on air pollution and freshwater availability. An assessment of the impacts of warming on the meteorological conditions suitable for air-stagnation events, which are conducive to trapping air-pollution is published in <a href='http://www.nature.com/nclimate/journal/v4/n8/full/nclimate2272.html'> Nature Climate Change</a>. Work on the potential for snowmelt to meet human water demands in major northern hemisphere basins under a warming climate is published in <a href='http://iopscience.iop.org/article/10.1088/1748-9326/10/11/114016'> Environmental Research Letters</a>.</p></p>
-                </div>
-            </div>
-        </div>
-        
+        {% endfor %}
     </div>
     </section>
     
 
 <!--- PAPERS -->
-    <section id="papers" class="bg-light-gray">
+    <section id="papers" class="{% cycle '', 'bg-light-gray' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -246,243 +93,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h3>Published</h3>
-                    <ol class="bibliography"><li><span id="Singh2011">Singh, D., T. Nishiie, and L. Qiao, 2011: Experimental and Kinetic Modeling Study of the Combustion of n-Decane, Jet-A, and S-8 in Laminar Premixed Flames. <i>Combustion Science and Technology</i>, <b>183</b>, 1002–1026, doi:10.1080/00102202.2011.575420. http://dx.doi.org/10.1080/00102202.2011.575420.</span>
-
-| <a href="papers/Singh2011.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/10.1080/00102202.2011.575420">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1080/00102202.2011.575420"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2012">Singh, D., T. Nishiie, S. Tanvir, and L. Qiao, 2012: An experimental and kinetic study of syngas/air combustion at elevated temperatures and the effect of water addition. <i>Fuel</i>, <b>94</b>, 448–456, doi:10.1016/j.fuel.2011.11.058. http://www.sciencedirect.com/science/article/pii/S0016236111007538.</span>
-
-| <a href="papers/Singh2012.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/10.1016/j.fuel.2011.11.058">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1016/j.fuel.2011.11.058"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2013">Singh, D., M. Tsiang, B. Rajaratnam, and N. S. Diffenbaugh, 2013: Precipitation extremes over the continental United States in a transient, high-resolution, ensemble climate model experiment. <i>Journal of Geophysical Research: Atmospheres</i>, <b>118</b>, 7063–7086, doi:10.1002/jgrd.50543. http://dx.doi.org/10.1002/jgrd.50543.</span>
-
-
-&rarr; <a href="http://doi.org/10.1002/jgrd.50543">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1002/jgrd.50543"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2014">Singh, D., M. Tsiang, B. Rajaratnam, and N. S. Diffenbaugh, 2014: Observed changes in extreme wet and dry spells during the South Asian summer monsoon season. <i>Nature Clim. Change</i>, <b>4</b>, 456–461, doi:doi:10.1038/nclimate2208. http://dx.doi.org/10.1038/nclimate2208 http://10.0.4.14/nclimate2208 http://www.nature.com/nclimate/journal/v4/n6/abs/nclimate2208.html#supplementary-information.</span>
-
-| <a href="papers/Singh2014.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/doi:10.1038/nclimate2208">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="doi:10.1038/nclimate2208"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Horton2014">Horton, D. E., C. B. Skinner, D. Singh, and N. S. Diffenbaugh, 2014: Occurrence and persistence of future atmospheric stagnation events. <i>Nature Clim. Change</i>, <b>4</b>, 698–703, doi:DOI:10.1038/NCLIMATE2272. http://dx.doi.org/10.1038/nclimate2272.</span>
-
-
-&rarr; <a href="http://doi.org/DOI:10.1038/NCLIMATE2272">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="DOI:10.1038/NCLIMATE2272"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Swain2014">Swain, D. L., M. Tsiang, M. Haugen, D. Singh, A. Charland, B. Rajaratnam, and N. S. Diffenbaugh, 2014: 2 . THE EXTRAORDINARY CALIFORNIA DROUGHT OF 2013 / 2014 : CHARACTER , CONTEXT , AND THE ROLE OF CLIMATE CHANGE. <i>[in "Explaining Extremes of 2013 from a Climate Perspective"]. Bull. Amer. Meteor. Soc.,</i> <b>95</b>, S3–S7.</span>
-
-| <a href="papers/Swain2014.pdf">PDF</a>
-
-
-<div data-badge-popover="right" data-badge-type="2" data-doi=""
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2014a">Singh, D., and others, 2014: Severe precipitation in Northern India in June 2013: causes, historical context, and changes in probability. <i>[in "Explaining Extremes of 2013 from a Climate Perspective"] Bull. Amer. Meteor. Soc.</i>, <b>95</b>, S58–S61.</span>
-
-| <a href="papers/Singh2014a.pdf">PDF</a>
-
-
-<div data-badge-popover="right" data-badge-type="2" data-doi=""
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Horton2015">Horton, D. E., N. C. Johnson, D. Singh, D. L. Swain, B. Rajaratnam, and N. S. Diffenbaugh, 2015: Contribution of changes in atmospheric circulation patterns to extreme temperature trends. <i>Nature</i>, <b>522</b>, 465–469, doi:doi:10.1038/nature14550. http://dx.doi.org/10.1038/nature14550 http://10.0.4.14/nature14550.</span>
-
-
-&rarr; <a href="http://doi.org/doi:10.1038/nature14550">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="doi:10.1038/nature14550"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Mankin2015">Mankin, J. S., D. Viviroli, D. Singh, A. Y. Hoekstra, and N. S. Diffenbaugh, 2015: The potential for snow to supply human water demand in the present and future. <i>Environmental Research Letters</i>, <b>10</b>, 114016, doi:doi:10.1088/1748-9326/10/11/114016. http://stacks.iop.org/1748-9326/10/i=11/a=114016.</span>
-
-| <a href="papers/Mankin2015.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/doi:10.1088/1748-9326/10/11/114016">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="doi:10.1088/1748-9326/10/11/114016"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2016">Singh, D., 2016: South Asian monsoon: Tug of war on rainfall changes. <i>Nature Clim. Change</i>, <b>6</b>, 20–22, doi:doi:10.1038/nclimate2901. http://dx.doi.org/10.1038/nclimate2901 http://10.0.4.14/nclimate2901.</span>
-
-| <a href="papers/Singh2016.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/doi:10.1038/nclimate2901">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="doi:10.1038/nclimate2901"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="DeFries">DeFries, R., P. Mondal, D. Singh, I. Agrawal, J. Fanzo, R. Remans, and S. Wood, 2016: Synergies and trade-offs for sustainable agriculture: Nutritional yields and climate-resilience for cereal crops in Central India. <i>Global Food Security</i>, doi:10.1016/j.gfs.2016.07.001. http://www.sciencedirect.com/science/article/pii/S2211912416300141.</span>
-
-| <a href="papers/DeFries.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/10.1016/j.gfs.2016.07.001">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1016/j.gfs.2016.07.001"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Swain2016">Swain, D. L., D. E. Horton, D. Singh, and N. S. Diffenbaugh, 2016: Trends in atmospheric patterns conducive to seasonal precipitation and temperature extremes in California. <i>Science Advances</i>, <b>2</b>, doi:DOI:10.1126/sciadv.1501344. http://advances.sciencemag.org/content/2/4/e1501344.abstract.</span>
-
-| <a href="papers/Swain2016.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/DOI:10.1126/sciadv.1501344">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="DOI:10.1126/sciadv.1501344"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2016a">Singh, D., D. L. Swain, J. S. Mankin, D. E. Horton, L. N. Thomas, B. Rajaratnam, and N. S. Diffenbaugh, 2016: Recent amplification of the North American winter temperature dipole. <i>Journal of Geophysical Research: Atmospheres</i>, <b>121</b>, 9911–9928, doi:10.1002/2016JD025116. http://dx.doi.org/10.1002/2016JD025116.</span>
-
-| <a href="papers/Singh2016a.pdf">PDF</a>
-
-
-&rarr; <a href="http://doi.org/10.1002/2016JD025116">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1002/2016JD025116"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Diffenbaugh2017">Diffenbaugh, N. S., D. Singh, and Others, 2017: Quantifying the influence of global warming on unprecedented extreme climate events. <i>Proceedings of the National Academy of Sciences</i>, <b>114</b>, 4881–4886, doi:10.1073/pnas.1618082114.</span>
-
-
-&rarr; <a href="http://doi.org/10.1073/pnas.1618082114">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1073/pnas.1618082114"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Raymond2017">Raymond, C., D. Singh, and R. Horton, 2017: Spatiotemporal Patterns and Synoptics of Extreme Wet-Bulb Temperature in the Contiguous United States. <i>Journal of Geophysical Research: Atmospheres</i>, doi:10.1002/2017JD027140. http://dx.doi.org/10.1002/2017JD027140.</span>
-
-
-&rarr; <a href="http://doi.org/10.1002/2017JD027140">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1002/2017JD027140"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Swain2017">Swain, D. L., D. Singh, D. E. Horton, J. S. Mankin, T. C. Ballard, and N. S. Diffenbaugh, 2017: Remote Linkages to Anomalous Winter Atmospheric Ridging Over the Northeastern Pacific. <i>Journal of Geophysical Research: Atmospheres</i>, <b>122</b>, doi:10.1002/2017JD026575. http://dx.doi.org/10.1002/2017JD026575.</span>
-
-
-&rarr; <a href="http://doi.org/10.1002/2017JD026575">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1002/2017JD026575"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="cook2017">Cook, B. I., A. P. Williams, J. S. Mankin, R. Seager, J. E. Smerdon, and D. Singh, 2017: Revisiting the leading drivers of Pacific coastal drought variability in the Contiguous United States. <i>Journal of Climate</i>, doi:10.1175/JCLI-D-17-0172.1. https://doi.org/10.1175/JCLI-D-17-0172.1.</span>
-
-
-&rarr; <a href="http://doi.org/10.1175/JCLI-D-17-0172.1">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1175/JCLI-D-17-0172.1"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Smerdon2017">Smerdon, J. E., and others, 2017: Comparing proxy and model estimates of hydroclimate variability and change over the Common Era. <i>Climate of the Past Discussions</i>, doi:10.5194/cp-2017-37. https://www.clim-past-discuss.net/cp-2017-37/.</span>
-
-
-&rarr; <a href="http://doi.org/10.5194/cp-2017-37">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.5194/cp-2017-37"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2018d">Singh, D., M. Bollasina, M. Ting, and N. S. Diffenbaugh, 2018: Disentangling the influence of local and remote anthropogenic aerosols on South Asian monsoon daily rainfall characteristics. <i>Climate Dynamics</i>, doi:https://doi.org/10.1007/s00382-018-4512-9.</span>
-
-
-&rarr; <a href="http://doi.org/https://doi.org/10.1007/s00382-018-4512-9">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="https://doi.org/10.1007/s00382-018-4512-9"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Diffenbaugheaao3354">Diffenbaugh, N. S., D. Singh, and J. S. Mankin, 2018: Unprecedented climate events: Historical changes, aspirational targets, and national commitments. <i>Science Advances</i>, <b>4</b>, doi:10.1126/sciadv.aao3354. http://advances.sciencemag.org/content/4/2/eaao3354.</span>
-
-
-&rarr; <a href="http://doi.org/10.1126/sciadv.aao3354">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1126/sciadv.aao3354"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Daviseaao1108">Davis, K. F., D. D. Chiarelli, M. C. Rulli, A. Chhatre, B. Richter, D. Singh, and R. DeFries, 2018: Alternative cereals can improve water use and nutrient supply in India. <i>Science Advances</i>, <b>4</b>, doi:10.1126/sciadv.aao1108. http://advances.sciencemag.org/content/4/7/eaao1108.</span>
-
-
-&rarr; <a href="http://doi.org/10.1126/sciadv.aao1108">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1126/sciadv.aao1108"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2018a">Singh, D., M. Ting, A. A. Scaife, and N. Martin, 2018: California Winter Precipitation Predictability: Insights from the anomalous 2015-16 and 2016-17 seasons. <i>Geophysical Research Letters</i>, <b>0</b>, doi:10.1029/2018GL078844. https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018GL078844.</span>
-
-
-&rarr; <a href="http://doi.org/10.1029/2018GL078844">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1029/2018GL078844"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="epic347043">Cohen, J., and others, 2018: <i>Arctic change and possible influence on mid-latitude climate and weather: a US CLIVAR White Paper</i>. K. Uhlenbrock, Ed. US CLIVAR, Washington, D.C. (USA),</span>
-
-
-&rarr; <a href="http://doi.org/10.5065/D6TH8KGW">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.5065/D6TH8KGW"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2018b">Singh, D., S. P. McDermid, B. I. Cook, M. J. Puma, L. Nazarenko, and M. Kelley, 2018: Distinct Influences of Land Cover and Land Management on Seasonal Climate. <i>Journal of Geophysical Research: Atmospheres</i>, <b>123</b>, 12,017–012,039, doi:10.1029/2018JD028874. https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JD028874.</span>
-
-
-&rarr; <a href="http://doi.org/10.1029/2018JD028874">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1029/2018JD028874"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2018c">Singh, D., R. Seager, B. I. Cook, M. Cane, M. Ting, E. Cook, and M. Davis, 2018: Climate and the Global Famine of 1876–78. <i>Journal of Climate</i>, <b>31</b>, 9445–9467, doi:10.1175/JCLI-D-18-0159.1. https://doi.org/10.1175/JCLI-D-18-0159.1.</span>
-
-
-&rarr; <a href="http://doi.org/10.1175/JCLI-D-18-0159.1">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1175/JCLI-D-18-0159.1"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Bishop2018">Bishop, D. A., and others, 2019: Investigating the causes of increased 20th-century fall precipitation over the southeastern United States. <i>Journal of Climate</i>, In press, doi:10.1175/JCLI-D-18-0244.1. https://doi.org/10.1175/JCLI-D-18-0244.1.</span>
-
-
-&rarr; <a href="http://doi.org/10.1175/JCLI-D-18-0244.1">online</a>
-
-<div data-badge-popover="right" data-badge-type="2" data-doi="10.1175/JCLI-D-18-0244.1"
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li>
-<li><span id="Singh2019">Singh, D., S. Ghosh, M. K. Roxy, and S. P. McDermid, Accepted: Indian Summer Monsoon: Extreme Events, Historical Changes and Role of Anthropogenic Forcings. <i>WIREs Climate Change</i>,</span>
-
-
-<div data-badge-popover="right" data-badge-type="2" data-doi=""
-data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div>
-</li></ol>
+                    {% bibliography --file references %}
                 </div>
 	        </div>
         </div>
     </section>
 
 <!--- SERVICE -->
-    <section id="service" class="">
+    <section id="service" class="{% cycle '', 'bg-light-gray' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -492,27 +110,11 @@ data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div
             <div class="row">
                 <div class="col-md-12">
                     <ul class="code">
-                        
+                        {% for service in site.data.my_service %}
                         <li>
-                            <p> <h4> Peer Reviewer </h4>Nature, Nature Climate Change, Nature Geoscience, Nature Scientific Reports, Geophysical Research Letters, Water Resources Research, Climate Dynamics, International Journal of Climatology, Journal of Climate, Journal of the American Water Resources Association, Journal of Environment and Agriculture Science, Water, and Quaternary International</p>
+                            <p> <h4> {{service.name}} </h4>{{service.description}}</p>
                         </li>
-                        
-                        <li>
-                            <p> <h4> Session Organizer/Co-convener </h4>AGU Fall Meeting 2015: <a href="https://agu.confex.com/agu/fm15/meetingapp.cgi/Session/10701"> Identifying Links between the Large-Scale Atmospheric Circulation and Climate Extremes (Oral) </a> <br>AGU Fall Meeting 2015: <a href="https://agu.confex.com/agu/fm15/meetingapp.cgi/Session/8915"> Identifying Links between the Large-scale Atmospheric Circulations and Climate Extremes (Poster) </a> <br> EGU General Assembly 2016: <a href="http://meetingorganizer.copernicus.org/EGU2016/orals/21076"> Detecting and Attributing Climate Change: Trends, Extreme Events, and Impacts</a> <br>AGU Fall Meeting 2016: <a href="https://agu.confex.com/agu/fm16/meetingapp.cgi/Session/16229"> Identifying Links between the Large-scale Atmospheric Circulations and Climate Extremes (Oral) I </a> <br>AGU Fall Meeting 2016: <a href="https://agu.confex.com/agu/fm16/meetingapp.cgi/Session/16224"> Identifying Links between the Large-scale Atmospheric Circulations and Climate Extremes (Oral) II  </a> <br>AGU Fall Meeting 2016: <a href="https://agu.confex.com/agu/fm16/meetingapp.cgi/Session/131378"> Identifying Links between the Large-scale Atmospheric Circulations and Climate Extremes (Posters) III  </a> </p>
-                        </li>
-                        
-                        <li>
-                            <p> <h4> Women in Science/Engineering Activities </h4>Founder for Women in Earth Sciences, Stanford University (2011-2015)<br> Founder for Women in Aeronautics and Astronautics Engineering, Purdue University (2009-2010)<br> Aeronautics and Astronautics Department Ambassador for the Women in Engineering Graduate Mentoring Program, Purdue University (2009-2010)</p>
-                        </li>
-                        
-                        <li>
-                            <p> <h4> Undergraduate Advising/Mentoring </h4>Co-advised Barsa Barsa for senior thesis titled "Relationship between Climate Variability and Rice Yields in Aerosol-affected Central-Eastern India", Barnard College (2015-2016) <br> <br> Research Mentor for Jordan Pratt for project titled "Effects of Large-scale Solar Installations on Dust Mobilization and Air Quatlity", <a href="https://woods.stanford.edu/educating-leaders/education/mentoring-undergraduates-interdisciplinary-research-program-muir"> Mentoring Undergraduates in Interdisciplinary Research </a>, Woods Institute for the Environment, Stanford University (2012)<br> <br> Research Mentor for Alex Chong for project titled "Flame Speed Measurements for Syngas/Air Mixtures", <a href="https://engineering.purdue.edu/Engr/Research/SURF"> Summer Undergraduate Research Fellowship </a>, College of Engineering, Purdue University (2010)</p>
-                        </li>
-                        
-                        <li>
-                            <p> <h4> Student Committees </h4>EESS Department Representative, Graduate Student Advisory Committee, School of Earth Sciences, Stanford University, (2011-2012)<br> Graduate Student Advisory Committee (AeroAssist), Aeronautics and Astronautics, Purdue Univerisity (2009-2010)</p>
-                        </li>
-                        
+                        {% endfor %}
                     </ul>
                 </div>                
             </div>
@@ -521,7 +123,7 @@ data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div
 
 <!--- OUTREACH -->
 
-    <section id="outreach" class="bg-light-gray">
+    <section id="outreach" class="{% cycle '', 'bg-light-gray' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -531,44 +133,24 @@ data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div
                 </div>
             </div>
         </div>
-        
+        {% for topic in site.data.outreach %}
         <div class="container">
             <div class="row ">
                 <div class="col-lg-12">
-                        <h4>Youth Science Engagement</h4>
-                        <p class="text-muted">Over the years, I have engaged in tutoring and mentoring activities with high-school students through various programs including - the college-bound program of the <b>Boys and Girls Girls Club of the Peninsula </b>(2010-2015), <b>Stanford Medical Youth Program</b> (2011), and the <b>Lamont Secondary School Field Research program </b>(2016). Many of the students I interacted with through these programs became first generation college students. I have also been a panelist for Early Career Researcher panel discussions for high-school groups visiting Lamont-Doherty Earth Observatory. </p>
-                        <p class="text-muted"> <a class="page-scroll" href="#"></a></p>
+                        <h4>{{ topic.name }}</h4>
+                        <p class="text-muted">{{ topic.description }}</p>
+                        <p class="text-muted"> <a class="page-scroll" href="#{{ topic.more }}">{{ topic.more }}</a></p>
                 </div>
             </div>
         </div>
-        
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-12">
-                        <h4>Workshops</h4>
-                        <p class="text-muted">I enjoy developing hands-on activities get younger students excited about science and engineering. With the <b>Purdue Energy Club</b>, I conducted a number of workshops for students in the Lafayette, Indiana area to educate them about clean energy technologies like solar, wind, and hydro, when I was a graduate student at Purdue (2008-2010). At Stanford, I organized workshops for middle and high-school students during <b>Stanford Splash </b>events. With members of the Women in Earth Sciences group at Stanford, I organized a workshop on Climate Change and Clean Energy for the <b>Girls in Science Day </b>in 2015 organized by the Boys and Girls Club of the Peninsula. </p>
-                        <p class="text-muted"> <a class="page-scroll" href="#"></a></p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-12">
-                        <h4>Public Talks and Panels</h4>
-                        <p class="text-muted">I gave two talks at the <b>Stanford Science Circle for High-School Students</b> in 2014 with over 50 participants from schools around the Bay Area: <b>Generation Anthropocene: the age of human-induced changes in the Earth System</b> and <b>Indian Summer Monsoon and its Changing Character</b>. With Dr. Diffenbaugh and other graduate students, I was a panelist for the Stanford Continuing Studies Program (2015) widely attended by members of the Bay Area community <b> Earth Matters: A Matter of Degrees</b>. With Daniel Horton, I organized a breakout session at Stanford Connecting the Dots (2014), a popular event for the Stanford and wider community: <b> Weather going wild: Will global warming lead to more extremes? </b>. </p>
-                        <p class="text-muted"> <a class="page-scroll" href="#"></a></p>
-                </div>
-            </div>
-        </div>
-        
+        {% endfor %}
         <div class="container">
              <img src="img/outreach/people2.jpg" class="img-responsive" alt="">         
         </div>
     </section>
 
 <!--- PRESS -->
-<section id="links" class="">
+<section id="links" class="{% cycle '', 'bg-light-gray' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -577,79 +159,25 @@ data-condensed="true" data-hide-no-mentions="true" class="altmetric-embed"></div
                 </div>
             </div>
         </div>
-        
+        {% for topic in site.data.links %}
         <div class="container">
             <div class="row ">
                 <div class="col-lg-12">
                      <div class="col-lg-12">
-                        <div class="text-muted"><b> Extremes Winters in North America </b></div>
-                        <div class="text-muted"><a href="http://news.stanford.edu/2016/09/01/extreme-weather-winters-becoming-common/"> Stanford News</a>, <a href="http://nyacknewsandviews.com/2018/01/earth-matters-winter-weather-dipole/"> Nyack News and Views</a>,<a href="http://www.ldeo.columbia.edu/news-events/extreme-weather-winters-becoming-more-common-us-study-shows"> Lamont News</a>, <a href="http://grist.org/briefly/climate-change-doesnt-exist-they-said-teeth-chattering-and-blue-thumbs-gamely-tweeting/"> Grist</a>, <a href="http://www.futurity.org/climate-change-winters-1239972-2/"> Futurity</a>, <a href="http://www.natureworldnews.com/articles/28017/20160902/extreme-winters-human-caused-increasingly-common.htm"> Nature World News</a></div>
+                        <div class="text-muted">{{ topic.description1 }}</div>
+                        <div class="text-muted">{{ topic.description2 }}</div>
                         <br>
-                        <div class="text-muted"><b> Rainfall Extremes in India </b></div>
-                        <div class="text-muted"><a href="http://e360.yale.edu/feature/unnatural_disaster_how_global_warming_helped_cause_indias_catastrophic_flood/2888/"> Yale Environment 360</a>, <a href="http://www.climatecentral.org/news/climate-changes-india-floods-18116"> Climate Central</a>, <a href="http://news.stanford.edu/news/2014/april/monsoon-extremes-india-042814.html"> Stanford News</a>, <a href="https://www.scientificamerican.com/article/indian-monsoons-are-becoming-more-extreme/"> Scientific American</a>, <a href="http://www.natureworldnews.com/articles/6827/20140430/wet-and-dry-spells-in-south-asia-growing-more-extreme.htm"> Nature World News</a>, <a href="http://www.nature.com/nclimate/journal/v4/n6/full/nclimate2243.html?message-global=remove"> Nature Climate Change News and Views</a>, <a href="http://timesofindia.indiatimes.com/india/India-faces-increased-drought-flood-risks-during-monsoon-Stanford-scientists-warn/articleshow/34381799.cms"> Times of India</a>, <a href="http://www.thehindu.com/sci-tech/science/extreme-wet-dry-spells-increase-drought-flood-risks-in-india/article5959807.ece"> The Hindu</a></div>
+                        <div class="text-muted">{{ topic.description3 }}</div>
+                        <div class="text-muted">{{ topic.description4 }}</div>
                         <br>
-                        <div class="text-muted"><b> Others </b></div>
-                        <div class="text-muted"><a href="http://fountainink.in/?p=7944"> FountainInk</a>, <a href="http://blogs.ei.columbia.edu/2016/01/08/its-beginning-to-look-not-a-lot-like-christmas/"> Earth Institute State of the Planet Blog</a></div>
-                        <div class="text-muted"> <a class="page-scroll" href="#"></a></div>
+                        <div class="text-muted">{{ topic.description5 }}</div>
+                        <div class="text-muted">{{ topic.description6 }}</div>
+                        <div class="text-muted"> <a class="page-scroll" href="#{{ topic.more }}">{{ topic.more }}</a></div>
                         </div>
                 </div>
             </div>
         </div>
-           
+        {% endfor %}   
 </section> 
 
 
-
-
-      <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-left">
-                    <!-- <span class="copyright">&copy; DEEPTI SINGH 2016</span> -->
-                    School of the Environment  <br>
-                    Washington State University <br>
-		    14204 NE Salmon Creek Ave <br>
-                    Vancouver, WA  - 98686 <br>
-                    Email: deepti.singh@wsu.edu
-                </div>
-                <div class="col-md-4 text-center">
-                    <ul class="list-inline social-buttons">
-                        
-                        <li><a href="mailto:deepti.singh@wsu.edu"><i class="fa fa-envelope"></i></a>
-                        </li>
-                        
-                        <li><a href="http://twitter.com/ClimateChirper"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        
-                        <li><a href="https://scholar.google.com/citations?user=6OQRGagAAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-right">
-                        <a href="https://environment.wsu.edu/"><img src="/img/WSU.png"></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-     <!-- jQuery Version 1.11.0 -->
-    <script src="/js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="/js/jquery.easing.min.js"></script>
-    <script src="/js/classie.js"></script>
-    <script src="/js/cbpAnimatedHeader.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="/js/jqBootstrapValidation.js"></script>
-    <script src="/js/contact_me.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/js/agency.js"></script>
-
-
-    </body>
-</html>
